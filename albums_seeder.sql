@@ -11,6 +11,10 @@ CREATE TABLE IF NOT EXISTS albums(
                                      sales FLOAT,
                                      PRIMARY KEY (id)
 );
+
+# Use INSERT to add records for all the albums from this list on Wikipedia that claim over 30 million sales (the first two tables). For sales data, use the 'sales certification' column of the tables, not 'claimed sales'. For artists listed with 'Various Artists', just use the primary artist's name.
+# First write your queries as separate INSERT statements for each record and test. You should see no output.
+# Refactor your script to use a single INSERT statement for all the records and test it again. Again, this should not generate any output.
 INSERT INTO albums(artist, album, release_date, genre, sales)
 VALUES ('Michael Jackson', 'Thriller', '1982', 'Pop', '48.9'),
        ('AC/DC', 'Back in Black', '1980', 'Hard Rock', '29.6'),
@@ -29,7 +33,7 @@ VALUES ('Michael Jackson', 'Thriller', '1982', 'Pop', '48.9'),
        ('Alanis Morissette', 'Jagged Little Pill', '1995', 'Alternative Rock', '24.3'),
        ('Michael Jackson', 'Dangerous', '1991', 'Pop', '17.0'),
        ('Celine Dion', 'Falling into You', '1996', 'Pop', '21.1'),
-       ('The Beatles', 'Sgt. Pepper\'s Lonely Hearts Club', '1967', 'Rock', '18.2'),
+       ('The Beatles', 'Sgt. Pepper\'s Lonely Hearts Club Band', '1967', 'Rock', '18.2'),
        ('Dirty Dancing', 'Dirty Dancing', '1971', 'Heavy Rock', '29.0'),
        ('Adele', '21', '2011', 'Pop', '26.4'),
        ('Celine Dion', 'Lets\'s Talk About Love', '1997', 'Pop', '19.3'),
@@ -45,7 +49,7 @@ VALUES ('Michael Jackson', 'Thriller', '1982', 'Pop', '48.9'),
        ('Nirvana', 'Nevermind', '1991', 'Grunge', '16.7'),
        ('Santana', 'Supernatural', '1999', 'Latin Rock', '20.5'),
        ('Guns N\' Roses', 'Appetite for Destruction', '1987', 'Hard Rock', '21.9'),
-       ('Elton John', 'Goodbye Yellow Brick Road', '1973', 'Rock', '8.5'),
+       ('Elton John', 'Goodbye Yellow Brick Road', '1973', 'Rock', '8.5');
 
 
 
