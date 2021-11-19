@@ -3,15 +3,17 @@
 # Find all employees with a 'q' in their last name — 1,873 rows.
 USE employees;
 
-SELECT first_name
+SELECT *
 FROM employees
-WHERE first_name IN ('Irena', 'Vidya', 'Maya');
+WHERE (first_name ='Irena'
+OR first_name ='Vidya'
+OR first_name ='Maya');
 
-SELECT first_name
+SELECT *
 FROM employees
-WHERE first_name LIKE 'e%';
+WHERE first_name LIKE 'E%';
 
-SELECT last_name
+SELECT *
 FROM employees
 WHERE last_name LIKE '%q%';
 
@@ -20,22 +22,25 @@ WHERE last_name LIKE '%q%';
 #     Find all employees whose last name starts or ends with 'E' — 30,723 rows.
 #     Duplicate the previous query and update it to find all employees whose last name starts and ends with 'E' — 899 rows.
 #     Find all employees with a 'q' in their last name but not 'qu' — 547 rows
-SELECT first_name
+SELECT *
 FROM employees
-WHERE first_name
-   OR ('Irena', 'Vidya', 'Maya');
+WHERE (first_name ='Irena'
+OR first_name ='Vidya'
+OR first_name ='Maya');
 
-SELECT first_name
+SELECT *
 FROM employees
-WHERE first_name IN ('Irena', 'Vidya', 'Maya')
+WHERE (first_name ='Irena'
+OR first_name ='Vidya'
+OR first_name ='Maya')
 AND gender = 'M';
 
-SELECT last_name
+SELECT *
 FROM employees
 WHERE last_name LIKE '%e'
-    OR 'e%';
+AND last_name LIKE 'e%';
 
-SELECT last_name
+SELECT *
 FROM employees
 WHERE last_name LIKE '%q%'
-    AND last_name != '%qu%';
+AND last_name NOT LIKE '%qu%';
