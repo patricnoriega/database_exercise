@@ -13,33 +13,32 @@ JOIN dept_manager AS dm ON dm.emp_no = dm.emp_no
 JOIN departments AS d ON d.dept_no  = d.dept_name
 WHERE;
 #     Find the name of all departments currently managed by women.
-SELECT CONCAT(departments, ' ', dept_manager) AS 'Departments Managed by Women'
-FROM employees AS e
-JOIN dept_manager AS dm ON dm.emp_no = dm.emp_no
-JOIN departments AS d ON d.dept_no  = d.dept_name
-WHERE
-AND gender = 'F';
+SELECT d.dept_name AS 'Dept Name', CONCAT(departments, ' ', dept_manager) AS 'Departments Managed by Women'
+FROM departments AS d
+JOIN employees AS e ON dm.emp_no = e.emp_no
+JOIN dept_manager AS dm ON d.dept_no  = dm.dept_name
+WHERE dm.to_date LIKE '9999%'AND gender = 'F'
+ORDER BY dept_name;
 
 
 #     Find the current titles of employees currently working in the Customer Service department.
 SELECT concat(titles, ' ', salary) AS 'Salaries in Customer Service'
 FROM titles AS t
-JOIN dept AS t on t.emp_no = db.emp_no
-JOIN departments AS d on
-WHERE;
+JOIN employess AS e on t.emp_no = e.emp_no
+JOIN departments AS d on de.dept_no = d.dept_no
+JOIN dept_emp de on e.emp_no = de.emp_no
+WHERE t.to_date LIKE '9999%' AND de.to_date LIKE '9999%' AND dept_name = 'customer service dept'
 
 
 #     Find the current salary of all current managers.
 SELECT d.dept_name AS 'Department Name',
-CONCAT(e.first_name, ' ', e.last_name) AS 'Department Manager',
-slary AS Salary
-FROM employess AS e
-JOIN dept_manager AS dm on e.emp_no = dm.emp_no
-JOIN departments AS d on dm.dept_no = e.emp_no
-JOIN
-WHERE
-AND
-ORDER BY;
+CONCAT(e.first_name, ' ', e.last_name) AS 'Department Manager', salary AS Salary
+FROM departments AS d
+JOIN dept_manager AS dm on d.dept_no = dm.dept_no
+JOIN departments AS e on dm.emp_no = e.emp_no
+JOIN salaries AS s on e.emp_no = salary
+WHERE dm.to_date LIKE '9999%' AND s.to_date LIKE '9999%'
+ORDER BY dept_name;
 
 
 #     Bonus Find the names of all current employees, their department name, and their current manager's name .
